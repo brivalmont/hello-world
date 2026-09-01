@@ -18,4 +18,8 @@ public class Hello {
 		System.out.println("Goodbye world!");
 	}
 
+	private static void foo() {
+		System.out.println("Bar");
+	}
+
 }
