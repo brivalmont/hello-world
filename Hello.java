@@ -1,6 +1,6 @@
 
 public class Hello {
-	# just adding a comment
+	# just adding an additional comment
 	public static void main(String[] args){
 		for (int i = 0; i < 10; i++) {
 			sayHelloWorld();
