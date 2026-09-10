@@ -12,6 +12,7 @@ public class Hello {
 
 	public static void sayHelloWorld() {
 		System.out.println("Hello world!");
+		System.out.println("Kicking off a new scan!");
 	}
 
 	public static void sayGoodbyeWorld() {
