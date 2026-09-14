@@ -1,6 +1,7 @@
 
 public class Hello {
 	# just adding an additional comment
+	# second comment to kick off scan
 	public static void main(String[] args){
 		for (int i = 0; i < 10; i++) {
 			sayHelloWorld();
