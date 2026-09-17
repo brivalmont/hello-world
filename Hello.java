@@ -14,6 +14,7 @@ public class Hello {
 	# in my bank account
 	# i got 1 2 3 4 5 6 7 8
 	# scooters ready to run ya down
+	# on God
 	public static void main(String[] args){
 		for (int i = 0; i < 10; i++) {
 			sayHelloWorld();
