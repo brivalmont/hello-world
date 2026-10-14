@@ -1,0 +1,7 @@
+[versions]
+sonarqube = "7.3.1.8318"
+artifactory = "6.0.4"
+
+[plugins]
+sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }
+artifactory-gradle-plugin = { id = "com.jfrog.artifactory", version.ref = "artifactory" }
