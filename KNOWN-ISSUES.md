@@ -1,6 +1,6 @@
 # Intentional Sonar fixtures
 
-Branch: `codex/sonar-known-issues`
+Fixture branches: `codex/sonar-known-issues` and `codex/dummy-discounts`.
 
 `src/main/java/example/KnownIssues.java` deliberately contains the following
 examples for testing the existing Sonar project. Do not fix or suppress these
