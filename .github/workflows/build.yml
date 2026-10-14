@@ -37,7 +37,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Build, test, and generate coverage
         run: ./gradlew --no-daemon clean build jacocoTestReport
-      - name: Analyze and wait for the quality gate
+      - name: Analyze and enforce the main-branch quality gate
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -46,4 +46,10 @@ jobs:
             echo "::error::Set the repository secret SONAR_TOKEN to enable Sonar analysis."
             exit 1
           fi
-          ./gradlew --no-daemon sonar -Dsonar.qualitygate.wait=true
+          quality_gate_wait=false
+          if [ "$GITHUB_REF" = 'refs/heads/main' ]; then
+            quality_gate_wait=true
+          else
+            echo "::notice::Submitting analysis without quality-gate polling: this Sonar organization cannot retrieve non-main branch results."
+          fi
+          ./gradlew --no-daemon sonar --info -Dsonar.qualitygate.wait="$quality_gate_wait"
