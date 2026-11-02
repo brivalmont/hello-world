@@ -5,6 +5,7 @@ public final class DeliveryFee {
         if (distanceInKilometers < 0) {
             throw new IllegalArgumentException("Distance cannot be negative");
         }
+	System.out.println();
         return distanceInKilometers <= 3 ? 250 : 500;
     }
 }
