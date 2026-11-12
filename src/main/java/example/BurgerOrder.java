@@ -4,7 +4,7 @@ package example;
 public record BurgerOrder(int quantity, boolean cheese) {
     public BurgerOrder {
         if (quantity < 1 || quantity > 20) {
-            throw new IllegalArgumentException("Quantity must be between 1 and 20");
+            throw new IllegalArgumentException("Quantity must be between 1 and 20!!");
         }
     }
 
