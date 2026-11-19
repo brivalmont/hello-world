@@ -44,8 +44,8 @@ sonar {
   properties {
     property("sonar.projectKey", "brivalmont_hello-world")
     property("sonar.organization", "brivalmont")
-    property("sonar.scanner.sonarcloudUrl", "https://dev9.sc-dev9.io")
-    property("sonar.scanner.apiBaseUrl", "https://api.sc-dev9.io")
+    property("sonar.scanner.sonarcloudUrl", "https://dev17.sc-dev17.io")
+    property("sonar.scanner.apiBaseUrl", "https://api.sc-dev17.io")
     property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
   }
 }
