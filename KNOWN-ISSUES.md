@@ -9,11 +9,12 @@ findings while using this branch as a scanner fixture.
 - `missingCustomerNameLength`: definite null dereference, expected `java:S2259`.
 - `normalizeCustomerName`: ignored result of `String.trim`, expected `java:S2201`.
 - `formatOrderIds`: array `toString` returns its identity, expected `java:S2116`.
-- `totalUnits`: integer multiplication can overflow before conversion to `long`,
-  expected `java:S2184`.
 - `weakFingerprint`: weak MD5 hashing, expected security hotspot `java:S4790`.
 
-These helpers compile but are not called by the application or existing tests.
+`totalUnits` now widens multiplication to `long` before calculating the result,
+fixing `java:S2184`, with a regression test for results beyond the integer range.
+
+The remaining defective helpers compile but are not called by the application or existing tests.
 The branch also intentionally has uncovered new code. Exact findings depend on
 the project's active quality profile and analyzer version.
 

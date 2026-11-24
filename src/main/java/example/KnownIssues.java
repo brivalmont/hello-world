@@ -21,7 +21,7 @@ public final class KnownIssues {
     }
 
     public long totalUnits(int boxes, int unitsPerBox) {
-        return boxes * unitsPerBox;
+        return (long) boxes * unitsPerBox;
     }
 
     public byte[] weakFingerprint(String text) throws NoSuchAlgorithmException {
