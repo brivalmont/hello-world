@@ -1,6 +1,6 @@
 package example;
 
-/** A small, deterministic sample for compilation, coverage, and branch analysis. */
+/** A small, deterministic sample for compilation, coverage, and branch analysis (dev17 trigger 2). */
 public record BurgerOrder(int quantity, boolean cheese) {
     public BurgerOrder {
         if (quantity < 1 || quantity > 20) {

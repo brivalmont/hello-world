@@ -52,4 +52,4 @@ jobs:
           else
             echo "::notice::Submitting analysis without quality-gate polling: this Sonar organization cannot retrieve non-main branch results."
           fi
-          ./gradlew --no-daemon sonar --info -Dsonar.qualitygate.wait="$quality_gate_wait"
+          ./gradlew --no-daemon sonar --info -Dsonar.log.level=DEBUG -Dsonar.qualitygate.wait="$quality_gate_wait"
