@@ -1,6 +1,8 @@
 name: SonarQube
 on:
   push:
+    branches: ['**']
+    tags: ['**']
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -37,7 +39,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Build, test, and generate coverage
         run: ./gradlew --no-daemon clean build jacocoTestReport
-      - name: Analyze and enforce the main-branch quality gate
+      - name: Analyze all branches (enforce quality gate on main)
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -50,6 +52,6 @@ jobs:
           if [ "$GITHUB_REF" = 'refs/heads/main' ]; then
             quality_gate_wait=true
           else
-            echo "::notice::Submitting analysis without quality-gate polling: this Sonar organization cannot retrieve non-main branch results."
+            echo "::notice::Running Sonar analysis with quality-gate polling disabled for this ref."
           fi
           ./gradlew --no-daemon sonar --info -Dsonar.log.level=DEBUG -Dsonar.qualitygate.wait="$quality_gate_wait"
